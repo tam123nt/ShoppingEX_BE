@@ -1,7 +1,6 @@
 package com.shopping.controller;
 
 import com.shopping.service.IProductService;
-import com.shopping.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
