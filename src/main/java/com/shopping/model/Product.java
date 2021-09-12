@@ -1,17 +1,22 @@
 package com.shopping.model;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+// Theo quy chuẩn của SB thì không cần table, ở đây thêm table để chỉ record thuộc table nào
+@Table(name="Products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ProductID")
     private Long productID;
 
-    @Column(name = "ProductName")
+    @NotNull
+    @Column(name="ProductName")
     private String productName;
 
     @Column(name = "SupplierID")
@@ -21,7 +26,7 @@ public class Product {
     private Long categoryID;
 
     @Column(name = "QuantityPerUnit")
-    private Long quantityPerUnit;
+    private String quantityPerUnit;
 
     @Column(name = "UnitPrice")
     private double unitPrice;
@@ -32,11 +37,11 @@ public class Product {
     @Column(name = "UnitsOnOrder")
     private Long unitsOnOrder;
 
-    @Column(name = "name")
+    @Column(name = "ReorderLevel")
     private Long reorderLevel;
 
-    @Column(name = "name")
-    private boolean discontinuted;
+    @Column(name = "Discontinued")
+    private Boolean discontinued;
 
     public Long getProductID() {
         return productID;
@@ -70,11 +75,11 @@ public class Product {
         this.categoryID = categoryID;
     }
 
-    public Long getQuantityPerUnit() {
+    public String getQuantityPerUnit() {
         return quantityPerUnit;
     }
 
-    public void setQuantityPerUnit(Long quantityPerUnit) {
+    public void setQuantityPerUnit(String quantityPerUnit) {
         this.quantityPerUnit = quantityPerUnit;
     }
 
@@ -110,11 +115,11 @@ public class Product {
         this.reorderLevel = reorderLevel;
     }
 
-    public boolean isDiscontinuted() {
-        return discontinuted;
+    public Boolean getDiscontinued() {
+        return discontinued;
     }
 
-    public void setDiscontinuted(boolean discontinuted) {
-        this.discontinuted = discontinuted;
+    public void setDiscontinued(Boolean discontinued) {
+        this.discontinued = discontinued;
     }
 }
