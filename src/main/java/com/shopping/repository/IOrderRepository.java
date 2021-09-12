@@ -1,6 +1,6 @@
 package com.shopping.repository;
 
-import org.hibernate.criterion.Order;
+import com.shopping.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
